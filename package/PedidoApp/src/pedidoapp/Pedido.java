@@ -5,6 +5,8 @@
  */
 package pedidoapp;
 
+import Lista.ListaEnlazada;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -14,9 +16,9 @@ import java.util.Date;
 public class Pedido {
     protected Date fecha;
     protected Cliente cliente_data;
-    protected ProductoPedido producto_pedido_list;// atributo del objeto
+    protected ListaEnlazada<ProductoPedido> producto_pedido_list;// atributo del objeto
 
-    public Pedido(Date fecha, Cliente cliente_data, ProductoPedido pl) {
+    public Pedido(Date fecha, Cliente cliente_data, ListaEnlazada<ProductoPedido>  pl) {
         this.fecha = fecha;
         this.cliente_data = cliente_data;
         this.producto_pedido_list = pl;
@@ -25,8 +27,18 @@ public class Pedido {
     public Pedido() {
     }
     
-    public ProductoPedido getProducto(){
-        return this.producto_pedido_list;
+    public void getProductoPedido(){
+        this.producto_pedido_list.listar();
     }
+
+    @Override
+    public String toString() {
+        return "fecha= " + fecha + 
+                "Nombre " + cliente_data.nombre;
+                
+    }
+    
+    
+    
     
 }

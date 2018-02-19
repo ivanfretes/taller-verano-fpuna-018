@@ -30,6 +30,10 @@ public class Cliente {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public void setApellido(String a) {
+       apellido = a;
+    }
     
     
     

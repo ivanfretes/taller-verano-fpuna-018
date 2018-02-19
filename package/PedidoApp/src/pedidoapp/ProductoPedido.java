@@ -18,6 +18,8 @@ public class ProductoPedido {
     public ProductoPedido(Producto producto, int cant_producto) {
         this.producto = producto;
         this.cant_producto = cant_producto;
+        precio_unit = this.producto.precio_venta;
+        this.calcular_monto_por_cantidad();
     }
 
     ProductoPedido() {
@@ -26,8 +28,18 @@ public class ProductoPedido {
     
     
     public int calcular_monto_por_cantidad(){
-        this.monto_por_cantidad = this.producto.getPrecioVenta() * this.cant_producto;
-        return this.monto_por_cantidad;
+        monto_por_cantidad = precio_unit * this.cant_producto;
+        return monto_por_cantidad;
+    }
+    
+    
+    public Producto getProducto(){
+        return this.producto;
+    }
+
+    @Override
+    public String toString() {
+        return "" + cant_producto  + " " + precio_unit + " " + this.producto.getNombre() + " " + monto_por_cantidad;
     }
     
     
